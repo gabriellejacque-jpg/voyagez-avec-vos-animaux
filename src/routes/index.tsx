@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "PetTrajet — Transport d'animaux entre particuliers en France" },
+      { title: "Doggo — Transport d'animaux entre particuliers en France" },
       {
         name: "description",
         content:

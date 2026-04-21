@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Et si quelque chose se passe mal pendant le trajet ?",
-    a: "Notre équipe d'assistance est disponible 7j/7 en temps réel. Tous les trajets sont couverts par notre garantie PetTrajet.",
+    a: "Notre équipe d'assistance est disponible 7j/7 en temps réel. Tous les trajets sont couverts par notre garantie Doggo.",
   },
   {
     q: "Quels animaux peuvent être transportés ?",
