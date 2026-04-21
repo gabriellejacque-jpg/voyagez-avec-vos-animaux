@@ -29,13 +29,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PetTrajet — Transport d'animaux entre particuliers" },
+      { title: "Doggo — Transport d'animaux entre particuliers" },
       {
         name: "description",
         content:
           "Confiez le transport de votre animal à un voyageur vérifié. Mise en relation simple, sécurisée et économique entre propriétaires et voyageurs.",
       },
-      { property: "og:title", content: "PetTrajet — Transport d'animaux entre particuliers" },
+      { property: "og:title", content: "Doggo — Transport d'animaux entre particuliers" },
       {
         property: "og:description",
         content: "Transportez votre animal en toute confiance grâce à notre communauté de voyageurs vérifiés.",

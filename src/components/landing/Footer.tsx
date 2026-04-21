@@ -13,7 +13,7 @@ export function Footer() {
               >
                 <PawPrint className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="font-display text-lg font-bold text-foreground">PetTrajet</span>
+              <span className="font-display text-lg font-bold text-foreground">Doggo</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               Le transport d'animaux entre particuliers, simple, sûr et économique partout en France.
@@ -39,7 +39,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} PetTrajet. Tous droits réservés.
+            © {new Date().getFullYear()} Doggo. Tous droits réservés.
           </p>
           <p className="text-xs text-muted-foreground">Fait avec 🐾 en France</p>
         </div>
