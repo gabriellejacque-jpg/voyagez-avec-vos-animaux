@@ -103,8 +103,12 @@ export function Hero() {
               }}
             />
             <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md">
-              <p className="font-display text-sm font-semibold text-foreground">Léo, 4 ans 🐾</p>
-              <p className="text-xs text-muted-foreground">Paris → Lyon · Demain · 25€</p>
+              <p className="font-display text-sm font-semibold text-foreground">
+                Bientôt : vos trajets 🐾
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Inscrivez-vous à la beta pour être parmi les premiers à publier ou réserver un trajet.
+              </p>
             </div>
           </div>
           <div
