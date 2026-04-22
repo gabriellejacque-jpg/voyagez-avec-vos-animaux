@@ -45,9 +45,8 @@ export function Hero() {
           </div>
 
           <h1 className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Votre chien veut rejoindre
+            Votre chien veut rejoindre vos proches à
             <br />
-            vos proches à{" "}
             <span
               key={cities[index]}
               className="inline-block bg-clip-text text-transparent animate-[fadeSlide_0.5s_ease-out]"
