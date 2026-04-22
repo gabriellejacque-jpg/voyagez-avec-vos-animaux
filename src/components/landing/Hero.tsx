@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, PawPrint } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
-const cities = ["Lyon", "Bordeaux", "Marseille", "Paris", "Toulouse", "Nantes"];
+const cities = ["Lyon", "Marseille", "Bordeaux"];
 
 export function Hero() {
   const [index, setIndex] = useState(0);
