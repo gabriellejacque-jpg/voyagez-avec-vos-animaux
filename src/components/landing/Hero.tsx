@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PawPrint } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
 const cities = ["Lyon", "Bordeaux", "Marseille", "Paris", "Toulouse", "Nantes"];
@@ -32,12 +32,16 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+          <div className="inline-flex items-center gap-2">
+            <div
+              className="flex h-9 w-9 items-center justify-center rounded-xl shadow-[var(--shadow-soft)]"
+              style={{ background: "var(--gradient-emerald)" }}
+            >
+              <PawPrint className="h-5 w-5 text-primary-foreground" />
+            </div>
+            <span className="font-display text-xl font-bold tracking-tight text-foreground">
+              Doggo
             </span>
-            Beta privée · Accès anticipé
           </div>
 
           <h1 className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
