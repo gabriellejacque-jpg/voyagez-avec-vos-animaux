@@ -128,7 +128,7 @@ function OwnerForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        alert("Demande envoyée ! On vous contacte dès qu'un voyageur est disponible.");
+        alert("Inscription beta enregistrée ! On vous contacte dès qu'un voyageur est disponible.");
       }}
       className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
     >
@@ -193,7 +193,7 @@ function OwnerForm() {
         type="submit"
         className="mt-7 w-full rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
       >
-        Poster ma demande
+        Rejoindre la beta
       </button>
     </form>
   );
@@ -206,7 +206,7 @@ function TravelerForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        alert("Trajet publié ! On vous met en relation avec des propriétaires.");
+        alert("Inscription beta enregistrée ! On vous met en relation avec des propriétaires.");
       }}
       className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
     >
@@ -272,7 +272,7 @@ function TravelerForm() {
         className="mt-7 w-full rounded-full px-6 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
         style={{ background: "var(--gradient-gold)", color: "oklch(0.22 0.04 160)" }}
       >
-        Poster mon voyage
+        Rejoindre la beta
       </button>
     </form>
   );
@@ -283,14 +283,18 @@ export function Forms() {
     <section id="forms" className="bg-secondary/40 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
-            Commencez maintenant
-          </p>
-          <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Postez en moins d'une minute
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Inscriptions beta ouvertes
+          </div>
+          <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Rejoignez les premiers utilisateurs
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Deux façons de participer. Choisissez la vôtre.
+            Accès gratuit pendant la beta. Deux façons de participer — choisissez la vôtre.
           </p>
         </div>
 

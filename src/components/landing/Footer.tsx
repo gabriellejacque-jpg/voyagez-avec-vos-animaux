@@ -14,6 +14,9 @@ export function Footer() {
                 <PawPrint className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="font-display text-lg font-bold text-foreground">Doggo</span>
+              <span className="rounded-full border border-primary/30 bg-primary/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+                Beta
+              </span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
               Le transport d'animaux entre particuliers, simple, sûr et économique partout en France.

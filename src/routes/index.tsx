@@ -23,6 +23,20 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="min-h-screen bg-background font-sans text-foreground antialiased">
+      <div
+        className="w-full text-center text-xs font-medium text-primary-foreground"
+        style={{ background: "var(--gradient-emerald)" }}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 px-6 py-2">
+          <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+            Beta
+          </span>
+          <span className="hidden sm:inline">
+            Doggo est en accès anticipé — inscrivez-vous gratuitement et façonnez le service avec nous.
+          </span>
+          <span className="sm:hidden">Accès anticipé gratuit — rejoignez la beta.</span>
+        </div>
+      </div>
       <Hero />
       <TrustBar />
       <HowItWorks />
