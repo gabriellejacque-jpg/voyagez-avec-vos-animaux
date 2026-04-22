@@ -89,7 +89,7 @@ export function Hero() {
           >
             <img
               src={heroDog}
-              alt="Chien golden retriever heureux pendant un voyage en voiture"
+              alt="Cocker spaniel assis dans un train regardant le paysage par la fenêtre"
               width={1600}
               height={1200}
               className="h-full w-full object-cover"
