@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PawPrint, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
 const cities = ["Lyon", "Bordeaux", "Marseille", "Paris", "Toulouse", "Nantes"];
@@ -65,14 +65,14 @@ export function Hero() {
               onClick={() => scrollTo("forms")}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
             >
-              Je suis propriétaire
+              Rejoindre la beta — propriétaire
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </button>
             <button
               onClick={() => scrollTo("forms")}
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
             >
-              Je suis voyageur
+              Rejoindre la beta — voyageur
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </button>
           </div>

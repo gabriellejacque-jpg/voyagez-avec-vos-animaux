@@ -193,7 +193,7 @@ function OwnerForm() {
         type="submit"
         className="mt-7 w-full rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
       >
-        Poster ma demande
+        Rejoindre la beta
       </button>
     </form>
   );
@@ -272,7 +272,7 @@ function TravelerForm() {
         className="mt-7 w-full rounded-full px-6 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
         style={{ background: "var(--gradient-gold)", color: "oklch(0.22 0.04 160)" }}
       >
-        Poster mon voyage
+        Rejoindre la beta
       </button>
     </form>
   );
