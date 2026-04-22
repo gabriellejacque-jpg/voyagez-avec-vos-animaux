@@ -34,7 +34,7 @@ export function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
             <PawPrint className="h-3.5 w-3.5 text-primary" />
-            Transport d'animaux entre particuliers
+            Doggo
           </div>
 
           <h1 className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
