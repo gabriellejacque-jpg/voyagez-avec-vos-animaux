@@ -32,9 +32,12 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm">
-            <PawPrint className="h-3.5 w-3.5 text-primary" />
-            Doggo
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
+            Beta privée · Accès anticipé
           </div>
 
           <h1 className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -52,8 +55,9 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            On met en relation propriétaires d'animaux et voyageurs vérifiés pour des trajets
-            sûrs, simples et économiques partout en France.
+            Doggo est en <span className="font-semibold text-foreground">beta</span>. Nous mettons
+            en relation propriétaires d'animaux et voyageurs vérifiés partout en France — rejoignez
+            les premiers utilisateurs et aidez-nous à façonner le service.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
