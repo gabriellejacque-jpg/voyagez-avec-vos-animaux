@@ -1,7 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/landing/Hero";
 import { TrustBar } from "@/components/landing/TrustBar";
+import { ValueProposition } from "@/components/landing/ValueProposition";
+import { UseCases } from "@/components/landing/UseCases";
 import { HowItWorks } from "@/components/landing/HowItWorks";
+import { SocialProof } from "@/components/landing/SocialProof";
 import { Forms } from "@/components/landing/Forms";
 import { FAQ } from "@/components/landing/FAQ";
 import { Footer } from "@/components/landing/Footer";
@@ -32,14 +35,17 @@ function Index() {
             Beta
           </span>
           <span className="hidden sm:inline">
-            Doggo est en accès anticipé — inscrivez-vous gratuitement et façonnez le service avec nous.
+            Accès anticipé — places limitées. Notre équipe vous aide personnellement à trouver un match.
           </span>
-          <span className="sm:hidden">Accès anticipé gratuit — rejoignez la beta.</span>
+          <span className="sm:hidden">Accès anticipé — places limitées.</span>
         </div>
       </div>
       <Hero />
       <TrustBar />
+      <ValueProposition />
+      <UseCases />
       <HowItWorks />
+      <SocialProof />
       <Forms />
       <FAQ />
       <Footer />

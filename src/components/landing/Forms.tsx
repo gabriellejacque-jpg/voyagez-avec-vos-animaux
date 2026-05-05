@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ChevronDown, PawPrint, Plane } from "lucide-react";
+import { Check, ChevronDown, PawPrint, Plane, Mail, ArrowRight } from "lucide-react";
 
 const animalTypes = ["Chien", "Chat", "Lapin", "Oiseau", "NAC"];
 const sizes = ["Petit (<5kg)", "Moyen (5–15kg)", "Grand (15–30kg)", "Très grand (>30kg)"];
@@ -121,14 +121,20 @@ function MultiSelect({
   );
 }
 
-function OwnerForm() {
+function OwnerForm({ email, onEmail }: { email: string; onEmail: (v: string) => void }) {
   const [type, setType] = useState("");
   const [size, setSize] = useState("");
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        alert("Inscription beta enregistrée ! On vous contacte dès qu'un voyageur est disponible.");
+        if (!expanded) {
+          setExpanded(true);
+          return;
+        }
+        alert("Merci ! On vous contacte dès qu'un voyageur correspond.");
       }}
       className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
     >
@@ -154,59 +160,82 @@ function OwnerForm() {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="Ville de départ">
-          <Input required placeholder="Paris" />
-        </Field>
-        <Field label="Ville d'arrivée">
-          <Input required placeholder="Lyon" />
-        </Field>
-        <Field label="Date">
-          <Input required type="date" />
-        </Field>
-        <Field label="Type d'animal">
-          <SingleSelect
-            options={animalTypes}
-            value={type}
-            onChange={setType}
-            placeholder="Choisir..."
-          />
-        </Field>
-        <div className="sm:col-span-2">
-          <Field label="Taille de l'animal">
-            <SingleSelect
-              options={sizes}
-              value={size}
-              onChange={setSize}
-              placeholder="Choisir..."
+      <div className="mt-6 space-y-4">
+        <Field label="Email">
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              required
+              type="email"
+              value={email}
+              onChange={(e) => onEmail(e.target.value)}
+              placeholder="vous@exemple.com"
+              className="w-full rounded-xl border border-input bg-background pl-10 pr-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary/60 focus:ring-4 focus:ring-primary/10"
             />
-          </Field>
-        </div>
-        <div className="sm:col-span-2">
-          <Field label="Email">
-            <Input required type="email" placeholder="vous@exemple.com" />
-          </Field>
-        </div>
+          </div>
+        </Field>
+
+        {expanded && (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Ville de départ">
+              <Input required placeholder="Paris" />
+            </Field>
+            <Field label="Ville d'arrivée">
+              <Input required placeholder="Lyon" />
+            </Field>
+            <Field label="Date">
+              <Input required type="date" />
+            </Field>
+            <Field label="Type d'animal">
+              <SingleSelect
+                options={animalTypes}
+                value={type}
+                onChange={setType}
+                placeholder="Choisir..."
+              />
+            </Field>
+            <div className="sm:col-span-2">
+              <Field label="Taille de l'animal">
+                <SingleSelect
+                  options={sizes}
+                  value={size}
+                  onChange={setSize}
+                  placeholder="Choisir..."
+                />
+              </Field>
+            </div>
+          </div>
+        )}
       </div>
 
       <button
         type="submit"
-        className="mt-7 w-full rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
       >
-        Rejoindre la beta
+        {expanded ? "Trouver un trajet maintenant" : "Être prévenu en priorité"}
+        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
       </button>
+      <p className="mt-3 text-center text-xs text-muted-foreground">
+        Réponse rapide pendant la beta
+      </p>
     </form>
   );
 }
 
-function TravelerForm() {
+function TravelerForm({ email, onEmail }: { email: string; onEmail: (v: string) => void }) {
   const [types, setTypes] = useState<string[]>([]);
   const [sz, setSz] = useState<string[]>([]);
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        alert("Inscription beta enregistrée ! On vous met en relation avec des propriétaires.");
+        if (!expanded) {
+          setExpanded(true);
+          return;
+        }
+        alert("Merci ! On vous met en relation avec des propriétaires.");
       }}
       className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
     >
@@ -232,53 +261,73 @@ function TravelerForm() {
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <Field label="Ville de départ">
-          <Input required placeholder="Marseille" />
-        </Field>
-        <Field label="Ville d'arrivée">
-          <Input required placeholder="Bordeaux" />
-        </Field>
-        <Field label="Date">
-          <Input required type="date" />
-        </Field>
-        <Field label="Type d'animal accepté">
-          <MultiSelect
-            options={animalTypes}
-            value={types}
-            onChange={setTypes}
-            placeholder="Choisir..."
-          />
-        </Field>
-        <div className="sm:col-span-2">
-          <Field label="Taille de l'animal">
-            <MultiSelect
-              options={sizes}
-              value={sz}
-              onChange={setSz}
-              placeholder="Choisir..."
+      <div className="mt-6 space-y-4">
+        <Field label="Email">
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <input
+              required
+              type="email"
+              value={email}
+              onChange={(e) => onEmail(e.target.value)}
+              placeholder="vous@exemple.com"
+              className="w-full rounded-xl border border-input bg-background pl-10 pr-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary/60 focus:ring-4 focus:ring-primary/10"
             />
-          </Field>
-        </div>
-        <div className="sm:col-span-2">
-          <Field label="Email">
-            <Input required type="email" placeholder="vous@exemple.com" />
-          </Field>
-        </div>
+          </div>
+        </Field>
+
+        {expanded && (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Ville de départ">
+              <Input required placeholder="Marseille" />
+            </Field>
+            <Field label="Ville d'arrivée">
+              <Input required placeholder="Bordeaux" />
+            </Field>
+            <Field label="Date">
+              <Input required type="date" />
+            </Field>
+            <Field label="Type d'animal accepté">
+              <MultiSelect
+                options={animalTypes}
+                value={types}
+                onChange={setTypes}
+                placeholder="Choisir..."
+              />
+            </Field>
+            <div className="sm:col-span-2">
+              <Field label="Taille de l'animal">
+                <MultiSelect
+                  options={sizes}
+                  value={sz}
+                  onChange={setSz}
+                  placeholder="Choisir..."
+                />
+              </Field>
+            </div>
+          </div>
+        )}
       </div>
 
       <button
         type="submit"
-        className="mt-7 w-full rounded-full px-6 py-3.5 font-display text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-display text-sm font-semibold shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
         style={{ background: "var(--gradient-gold)", color: "oklch(0.22 0.04 160)" }}
       >
-        Rejoindre la beta
+        {expanded ? "Proposer mon trajet" : "Être prévenu en priorité"}
+        <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
       </button>
+      <p className="mt-3 text-center text-xs text-muted-foreground">
+        Réponse rapide pendant la beta
+      </p>
     </form>
   );
 }
 
 export function Forms() {
+  const [ownerEmail, setOwnerEmail] = useState("");
+  const [travelerEmail, setTravelerEmail] = useState("");
+
   return (
     <section id="forms" className="bg-secondary/40 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -288,19 +337,20 @@ export function Forms() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            Inscriptions beta ouvertes
+            Accès anticipé — places limitées
           </div>
           <h2 className="font-display mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Rejoignez les premiers utilisateurs
+            Trouvez votre match en quelques secondes
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Accès gratuit pendant la beta. Deux façons de participer — choisissez la vôtre.
+            Laissez votre email pour être prévenu en priorité. Pendant la beta, notre équipe vous
+            aide personnellement à trouver un match.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <OwnerForm />
-          <TravelerForm />
+          <OwnerForm email={ownerEmail} onEmail={setOwnerEmail} />
+          <TravelerForm email={travelerEmail} onEmail={setTravelerEmail} />
         </div>
       </div>
     </section>

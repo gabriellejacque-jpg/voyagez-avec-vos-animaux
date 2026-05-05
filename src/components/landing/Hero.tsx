@@ -1,24 +1,19 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, PawPrint } from "lucide-react";
+import { ArrowRight, PawPrint, ShieldCheck, Handshake, LifeBuoy } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
-const cities = ["Lyon", "Marseille", "Bordeaux"];
+const reassurance = [
+  { icon: ShieldCheck, text: "Profils vérifiés manuellement" },
+  { icon: Handshake, text: "Mise en relation sécurisée" },
+  { icon: LifeBuoy, text: "Assistance pendant le trajet" },
+];
 
 export function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % cities.length), 2200);
-    return () => clearInterval(id);
-  }, []);
-
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <section className="relative overflow-hidden bg-background pt-8 pb-20 md:pt-12 md:pb-28">
-      {/* ambient shapes */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-32 h-[420px] w-[420px] rounded-full blur-3xl opacity-30"
@@ -42,44 +37,60 @@ export function Hero() {
             <span className="font-display text-xl font-bold tracking-tight text-foreground">
               Doggo
             </span>
+            <span className="ml-1 rounded-full border border-primary/30 bg-primary/5 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">
+              Beta
+            </span>
           </div>
 
-          <h1 className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            Votre chien veut rejoindre
-            <br />
-            vos proches à{" "}
+          <h1 className="font-display mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem]">
+            Faites voyager votre chien en toute confiance,{" "}
             <span
-              key={cities[index]}
-              className="inline-block bg-clip-text text-transparent animate-[fadeSlide_0.5s_ease-out]"
+              className="bg-clip-text text-transparent"
               style={{ backgroundImage: "var(--gradient-emerald)" }}
             >
-              {cities[index]}
+              sans vous déplacer.
             </span>
-            .
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-            Doggo est en <span className="font-semibold text-foreground">beta</span>. Nous mettons
-            en relation propriétaires d'animaux et voyageurs vérifiés partout en France — rejoignez
-            les premiers utilisateurs et aidez-nous à façonner le service.
+            Doggo connecte des propriétaires d'animaux avec des voyageurs vérifiés pour les emmener
+            chez leurs proches partout en France.
           </p>
+
+          <ul className="mt-6 space-y-2.5">
+            {reassurance.map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-center gap-3 text-sm text-foreground">
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                  style={{ background: "var(--gradient-emerald)" }}
+                >
+                  <Icon className="h-4 w-4 text-primary-foreground" />
+                </span>
+                {text}
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
               onClick={() => scrollTo("forms")}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lg)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
             >
-              Rejoindre la beta — propriétaire
+              Trouver un trajet
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </button>
             <button
               onClick={() => scrollTo("forms")}
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-soft)]"
             >
-              Rejoindre la beta — voyageur
+              Proposer un trajet
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </button>
           </div>
+
+          <p className="mt-4 text-xs text-muted-foreground">
+            Accès anticipé — places limitées. Réponse rapide pendant la beta.
+          </p>
         </div>
 
         <div className="relative">
@@ -104,10 +115,10 @@ export function Hero() {
             />
             <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-white/90 p-4 backdrop-blur-md">
               <p className="font-display text-sm font-semibold text-foreground">
-                Bientôt : vos trajets 🐾
+                Pendant la beta, on vous accompagne 🐾
               </p>
               <p className="text-xs text-muted-foreground">
-                Inscrivez-vous à la beta pour être parmi les premiers à publier ou réserver un trajet.
+                Notre équipe vous aide personnellement à trouver un match.
               </p>
             </div>
           </div>
@@ -118,13 +129,6 @@ export function Hero() {
           />
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeSlide {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </section>
   );
 }

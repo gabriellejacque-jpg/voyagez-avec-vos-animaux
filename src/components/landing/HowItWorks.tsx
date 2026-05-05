@@ -1,15 +1,15 @@
 import { PawPrint, Plane } from "lucide-react";
 
 const owner = [
-  { t: "Postez votre besoin", d: "Indiquez la ville de départ, d'arrivée, la date souhaitée et le profil de votre animal." },
-  { t: "Recevez une alerte", d: "On vous notifie dès qu'un voyageur compatible fait ce trajet." },
-  { t: "Confirmez et payez", d: "Échangez avec le voyageur et finalisez le transport en toute sécurité." },
+  { t: "Indiquez votre trajet et votre animal", d: "Départ, arrivée, date et profil de votre animal." },
+  { t: "Recevez des propositions de voyageurs vérifiés", d: "On vous met en relation avec les profils compatibles." },
+  { t: "Échangez et confirmez en toute confiance", d: "Discutez avec le voyageur avant de valider." },
 ];
 
 const traveler = [
-  { t: "Publiez votre trajet", d: "Indiquez votre date, vos villes de départ et d'arrivée." },
-  { t: "Soyez mis en relation", d: "On vous propose un propriétaire dont l'animal correspond à vos critères." },
-  { t: "Aidez et soyez compensé", d: "Accompagnez l'animal et recevez une compensation de ~25€." },
+  { t: "Partagez votre trajet", d: "Vos villes de départ, d'arrivée et votre date." },
+  { t: "Choisissez les demandes compatibles", d: "Sélectionnez l'animal et le propriétaire qui vous conviennent." },
+  { t: "Transportez un animal et recevez une compensation", d: "Accompagnez l'animal et recevez ~25€ par trajet." },
 ];
 
 function Column({
