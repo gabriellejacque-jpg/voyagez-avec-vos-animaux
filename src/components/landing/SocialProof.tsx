@@ -2,8 +2,8 @@ import { ArrowRight, MapPin } from "lucide-react";
 
 const trips = [
   { from: "Paris", to: "Bordeaux", info: "2 demandes en attente", tone: "emerald" as const },
-  { from: "Lyon", to: "Paris", info: "1 voyageur disponible", tone: "gold" as const },
-  { from: "Marseille", to: "Toulouse", info: "3 demandes en attente", tone: "emerald" as const },
+  { from: "Paris", to: "Lyon", info: "1 voyageur disponible", tone: "gold" as const },
+  { from: "Paris", to: "Marseille", info: "3 demandes en attente", tone: "emerald" as const },
 ];
 
 export function SocialProof() {

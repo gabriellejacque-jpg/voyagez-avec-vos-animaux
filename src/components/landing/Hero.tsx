@@ -1,4 +1,4 @@
-import { ArrowRight, PawPrint, ShieldCheck, Handshake, LifeBuoy } from "lucide-react";
+import { ArrowRight, PawPrint, ShieldCheck, Handshake, LifeBuoy, MapPin } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
 const reassurance = [
@@ -6,6 +6,8 @@ const reassurance = [
   { icon: Handshake, text: "Mise en relation sécurisée" },
   { icon: LifeBuoy, text: "Assistance pendant le trajet" },
 ];
+
+const betaRoutes = ["Bordeaux", "Lyon", "Marseille"];
 
 export function Hero() {
   const scrollTo = (id: string) => {
@@ -56,6 +58,29 @@ export function Hero() {
             Doggo connecte des propriétaires d'animaux avec des voyageurs vérifiés pour les emmener
             chez leurs proches partout en France.
           </p>
+
+          <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-4">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+              <MapPin className="h-4 w-4" />
+              Beta — trajets disponibles
+            </div>
+            <p className="mt-2 font-display text-base font-semibold text-foreground">
+              Au départ de Paris vers :
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {betaRoutes.map((city) => (
+                <span
+                  key={city}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-card px-3 py-1.5 text-sm font-semibold text-foreground shadow-[var(--shadow-soft)]"
+                >
+                  Paris <ArrowRight className="h-3.5 w-3.5 text-primary" /> {city}
+                </span>
+              ))}
+            </div>
+            <p className="mt-3 text-xs text-muted-foreground">
+              D'autres villes seront ajoutées progressivement.
+            </p>
+          </div>
 
           <ul className="mt-6 space-y-2.5">
             {reassurance.map(({ icon: Icon, text }) => (
