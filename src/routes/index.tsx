@@ -35,9 +35,11 @@ function Index() {
             Beta
           </span>
           <span className="hidden sm:inline">
-            Accès anticipé — places limitées. Notre équipe vous aide personnellement à trouver un match.
+            Beta ouverte uniquement aux trajets <strong>Paris → Bordeaux, Lyon ou Marseille</strong>.
           </span>
-          <span className="sm:hidden">Accès anticipé — places limitées.</span>
+          <span className="sm:hidden">
+            Beta : <strong>Paris → Bordeaux, Lyon, Marseille</strong>
+          </span>
         </div>
       </div>
       <Hero />
