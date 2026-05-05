@@ -1,4 +1,4 @@
-import { ArrowRight, PawPrint, ShieldCheck, Handshake, LifeBuoy } from "lucide-react";
+import { ArrowRight, PawPrint, ShieldCheck, Handshake, LifeBuoy, MapPin } from "lucide-react";
 import heroDog from "@/assets/hero-dog.jpg";
 
 const reassurance = [
@@ -6,6 +6,8 @@ const reassurance = [
   { icon: Handshake, text: "Mise en relation sécurisée" },
   { icon: LifeBuoy, text: "Assistance pendant le trajet" },
 ];
+
+const betaRoutes = ["Bordeaux", "Lyon", "Marseille"];
 
 export function Hero() {
   const scrollTo = (id: string) => {
